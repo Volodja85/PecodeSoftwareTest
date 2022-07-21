@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.ITestContext;
 import org.testng.ITestNGMethod;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
@@ -18,36 +19,32 @@ import java.time.Duration;
 
 public class TestRunnerNG {
 
+    protected static WebDriver driver;
     protected static TestValueProvider testValueProvider;
-    protected WebDriver driver;
 
-    @BeforeSuite(alwaysRun = true)
-    public void beforeSuite(ITestContext context) throws IOException {
-        for (ITestNGMethod method : context.getAllTestMethods()) {
-            method.setRetryAnalyzerClass(Retry.class);
-        }
-        WebDriverManager.chromedriver().setup();
-        testValueProvider = new TestValueProvider();
-    }
 
-    @SneakyThrows()
-    @BeforeMethod
-    public void beforeMethod(ITestContext context) {
+    @BeforeSuite
+    public void beforeSuite() throws IOException {
 
-        ChromeOptions options = new ChromeOptions();
         if (testValueProvider == null) {
             testValueProvider = new TestValueProvider();
         }
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
+        driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().window().maximize();
         driver.get(testValueProvider.getBaseUrl());
-        context.setAttribute("driver", driver);
     }
 
-    @AfterMethod
-    public void afterMethod() {
+    @BeforeMethod
+    public void beforeMethod(ITestContext context) {
+        context.setAttribute("myDriver", driver);
+        driver.get(testValueProvider.getBaseUrl());
+    }
+
+
+    @AfterSuite(alwaysRun = true)
+    public void afterSuite() throws IOException {
         if (driver != null) {
             driver.quit();
         }
