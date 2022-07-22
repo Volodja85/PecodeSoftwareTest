@@ -19,12 +19,12 @@ public class TestValueProvider {
     }
 
     public String getBaseUrl() {
-        return  properties != null ? properties.getProperty("baseURL") : System.getenv("BASE_URL");
+        return   properties.getProperty("baseURL");
     }
     public String getUserName() {
-        return  properties != null ? properties.getProperty("UserName") : System.getenv("USER_NAME");
+        return  properties.getProperty("UserName");
     }
     public String getUserPassword() {
-        return  properties != null ? properties.getProperty("UserPassWord") : System.getenv("USER_PASSWORD");
+        return  properties.getProperty("UserPassword");
     }
 }
