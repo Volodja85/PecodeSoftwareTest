@@ -30,7 +30,7 @@ public class TestRunnerNG {
         driver = new ChromeDriver();
         context.setAttribute("myDriver", driver);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get(testValueProvider.getBaseUrl());
     }
 

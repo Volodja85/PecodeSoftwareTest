@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="D:/Test Automation Engineer with Java/��������/PecodeSoftwareTest/src/test/java">
+        <classes>
+            <class name="com.ita.edu.pecodesoftware.ui.tests.LoginTest">
+                <methods>
+                    <include name="verifyWhenEnteringNonExistentUser"/>
+                    <include name="verifyValueWhenEnteringNonExistentUser"/>
+                    <include name="verifyWhenEnteringCyrillicValue"/>
+                    <include name="verifyValueWhenEnteringCyrillicData"/>
+                    <include name="verifyWhenEnterEmptyValue"/>
+                    <include name="verifyValueWhenEnterEmptyData"/>
+                    <include name="verifyWhenEnterNumbersValue"/>
+                    <include name="verifyValueWhenEnterNumbers"/>
+                    <include name="CheckLoginAvatarMini"/>
+                    <include name="CheckLoginTextCenter"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+    </listeners>
+</suite>

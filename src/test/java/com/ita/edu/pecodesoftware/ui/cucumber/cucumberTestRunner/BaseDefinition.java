@@ -12,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.io.IOException;
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 public class BaseDefinition {
 
@@ -33,7 +34,7 @@ public class BaseDefinition {
         }
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+       //  driver.manage().timeouts().implicitlyWait(TimeUnit.SECONDS.ordinal());
         driver.get(testValueProvider.getBaseUrl());
     }
 

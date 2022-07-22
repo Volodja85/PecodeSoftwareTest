@@ -34,19 +34,6 @@ public class BasePage {
         action.moveToElement(el).perform();
     }
 
-    public void waitForElement(WebElement elem, long seconds){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
-        wait.until(ExpectedConditions.visibilityOf(elem));}
-
-    public void waitForElementIsClickable(WebElement elem, long seconds){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
-        wait.until(ExpectedConditions.elementToBeClickable(elem));}
-
-    public void waitUntilVisibilityOfElementLocated(By locator, long seconds) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-    }
-
     @Attachment(value = "Page screenshot", type = "image/png")
     public byte[] saveScreenshot() {
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
