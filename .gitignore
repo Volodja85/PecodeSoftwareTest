@@ -47,9 +47,10 @@ hs_err_pid*
 replay_pid*
 /out/
 target
-.idea
-.idea/
+
 *.iml
+*.idea/compiler.xml
+
 
 #project
 #data.properties

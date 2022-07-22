@@ -3,10 +3,12 @@ package com.ita.edu.pecodesoftware.ui.elements.pages;
 
 import com.ita.edu.pecodesoftware.ui.elements.locators.ErrorLoginLocator;
 import com.ita.edu.pecodesoftware.ui.elements.locators.LoginLocator;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+
 
 
 public class LoginPage extends BasePage {
@@ -23,59 +25,104 @@ public class LoginPage extends BasePage {
     private WebElement errorEnterUserPassword;
     @FindBy(how = How.XPATH, using = ErrorLoginLocator.ERROR_PLEASE_ENTER_USERNAME)
     private WebElement errorEnterUserName;
+    @FindBy(how = How.XPATH, using = ErrorLoginLocator.ERROR_BODY_MASSAGE)
+    private WebElement errorBodyMassage;
+    @FindBy(how = How.XPATH, using = LoginLocator.AVATAR_LOGOMINI_XPATH)
+    private WebElement avatarLogoMini;
+    @FindBy(how = How.XPATH, using = LoginLocator.TEXT_CENTER_XPATH)
+    private WebElement textCenter;
+
 
     public LoginPage(WebDriver driver) {
         super(driver);
     }
 
+    @Step("Click title UserName")
     public LoginPage ClickUserName() {
         userName.click();
         return this;
     }
-
+    @Step("Click title UserPassword")
     public LoginPage ClickUserPassword() {
         userPassword.click();
         return this;
     }
-
+    @Step("entered user name {nameValue}")
     public LoginPage sendKeysUserNameField(String nameValue) {
         userName.sendKeys(nameValue);
         return this;
     }
-
+    @Step("entered password {passwordValue}")
     public LoginPage sendKeysUserPasswordField(String passwordValue) {
         userPassword.sendKeys(passwordValue);
         return this;
     }
-
+    @Step("get error message when user not found")
     public String TextErrorNoFoundUserName() {
         return errorNoFoundUserName.getText();
     }
-
+    @Step("get displayed when user not found")
     public boolean DisplayedErrorNoFoundUserName() {
          return errorNoFoundUserName.isDisplayed();
     }
+    @Step("get error message Enter user password")
     public String TextErrorEnterUserPassword() {
         return errorEnterUserPassword.getText();
     }
-
+    @Step("get displayed when Enter user password")
     public boolean DisplayedErrorEnterUserPassword() {
-       return errorEnterUserPassword.isDisplayed();
+        return errorEnterUserPassword.isDisplayed();
 
     }
+    @Step("get error message Enter user name")
     public String TextErrorEnterUserName() {
         return errorEnterUserName.getText();
     }
-
-    public boolean DisplayedErrorEnterUserName() {
-       return errorEnterUserName.isDisplayed();
+    @Step("get error message text from body")
+    public String TextErrorBodyMassage() {
+        String errorMassage = null;
+        try {
+            errorMassage = getFindTextFromBody(errorBodyMassage.getText(), "\n", 0);
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
+        return errorMassage;
     }
-
+    @Step("get Displayed when Entered error UserName")
+    public boolean DisplayedErrorEnterUserName() {
+        return errorEnterUserName.isDisplayed();
+    }
+    @Step("delete text in userName")
+    public LoginPage deleteTextUserName() {
+        deleteText(userName);
+        return this;
+    }
+    @Step("delete text in Password")
+    public LoginPage deleteTextUserPassword() {
+        deleteText(userPassword);
+        return this;
+    }
+    @Step("Click login button and opened Home page")
     public HomePage clickLoginButton() {
         buttonLogin.click();
         sleep(1000);
         return new HomePage(driver);
     }
-
+    @Step("get Attribute Avatar src")
+    public String getAvatarImgPath() {
+        return avatarLogoMini.getAttribute("src");
+    }
+    @Step("get Attribute text from text center")
+    public String TextFromTextCenter() {
+        return textCenter.getText();
+    }
+    @Step("get Attribute UserName Value")
+    public String TextUserNameValue() {
+        return userName.getAttribute("value");
+    }
+    @Step("get Attribute Password Value")
+    public String TextUserPasswordValue() {
+        return userPassword.getAttribute("value");
+    }
 
 }

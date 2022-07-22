@@ -27,4 +27,5 @@ public class TestValueProvider {
     public String getUserPassword() {
         return  properties.getProperty("UserPassword");
     }
+
 }

@@ -6,6 +6,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.time.Duration;
 
 public class BasePage {
@@ -51,9 +52,14 @@ public class BasePage {
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 
-    public void deleteText(WebElement elem){
+    public void deleteText(WebElement elem) {
         elem.click();
         String del = Keys.chord(Keys.CONTROL, "a") + Keys.DELETE;
         elem.sendKeys(del);
+    }
+
+    public String getFindTextFromBody(String texts, String regex, int index) {
+        String[] message = texts.split(regex);
+        return message[index];
     }
 }
