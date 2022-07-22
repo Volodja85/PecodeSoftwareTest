@@ -21,11 +21,12 @@ public class TestValueProvider {
     public String getBaseUrl() {
         return   properties.getProperty("baseURL");
     }
+
     public String getUserName() {
         return  properties.getProperty("UserName");
     }
+
     public String getUserPassword() {
         return  properties.getProperty("UserPassword");
     }
-
 }

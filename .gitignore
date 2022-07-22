@@ -57,7 +57,7 @@ target
 
 #allure
 .allure
-allure-results
+target/allure-results
 
 test-output
 

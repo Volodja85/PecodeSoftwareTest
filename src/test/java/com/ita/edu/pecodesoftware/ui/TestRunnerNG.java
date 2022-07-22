@@ -5,10 +5,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.ITestContext;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Listeners;
+import org.testng.annotations.*;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -38,7 +35,14 @@ public class TestRunnerNG {
     }
 
     @AfterClass
-    public void quitDriver() {
+    public void quitDriverClass() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
+
+    @AfterSuite
+    public void quitDriverSuite() {
         if (driver != null) {
             driver.quit();
         }
