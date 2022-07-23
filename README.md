@@ -24,6 +24,9 @@ Required to install
     Maven(3.8.2)
     Allure(2.17.3)
     TestNG (7.4.0)
+    TestNG report
+    Selenium
+    Cucumber
 
 
 
