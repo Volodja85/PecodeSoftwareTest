@@ -1,7 +1,5 @@
 package com.ita.edu.pecodesoftware.ui.cucumber.steps_definitions;
 
-import com.ita.edu.pecodesoftware.ui.cucumber.cucumberTestRunner.BaseDefinition;
-import com.ita.edu.pecodesoftware.ui.cucumber.cucumberTestRunner.PageContext;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import org.testng.asserts.SoftAssert;

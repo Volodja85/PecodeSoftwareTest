@@ -9,6 +9,7 @@ import org.testng.annotations.*;
 
 import java.io.IOException;
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 @Listeners(TestNGListener.class)
 public class TestRunnerNG {
@@ -30,7 +31,8 @@ public class TestRunnerNG {
         driver = new ChromeDriver();
         context.setAttribute("myDriver", driver);
         driver.manage().window().maximize();
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+      //  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         driver.get(testValueProvider.getBaseUrl());
     }
 

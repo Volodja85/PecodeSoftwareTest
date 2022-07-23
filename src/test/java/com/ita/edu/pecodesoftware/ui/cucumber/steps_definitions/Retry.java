@@ -1,4 +1,4 @@
-package com.ita.edu.pecodesoftware.ui.cucumber.cucumberTestRunner;
+package com.ita.edu.pecodesoftware.ui.cucumber.steps_definitions;
 
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;

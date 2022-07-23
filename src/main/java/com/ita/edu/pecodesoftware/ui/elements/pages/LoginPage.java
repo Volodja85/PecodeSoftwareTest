@@ -103,6 +103,7 @@ public class LoginPage extends BasePage {
 
     @Step("get Displayed when Entered error UserName")
     public boolean DisplayedErrorEnterUserName() {
+        saveScreenshot();
         return errorEnterUserName.isDisplayed();
     }
 
@@ -127,11 +128,13 @@ public class LoginPage extends BasePage {
 
     @Step("get Attribute Avatar src")
     public String getAvatarImgPath() {
+        saveScreenshot();
         return avatarLogoMini.getAttribute("src");
     }
 
     @Step("get Attribute text from text center")
     public String TextFromTextCenter() {
+        saveScreenshot();
         return textCenter.getText();
     }
 

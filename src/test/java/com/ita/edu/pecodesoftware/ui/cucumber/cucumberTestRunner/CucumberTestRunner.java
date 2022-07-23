@@ -1,5 +1,6 @@
 package com.ita.edu.pecodesoftware.ui.cucumber.cucumberTestRunner;
 
+import com.ita.edu.pecodesoftware.ui.cucumber.steps_definitions.Retry;
 import io.cucumber.testng.*;
 import org.testng.ITestContext;
 import org.testng.ITestNGMethod;
@@ -7,7 +8,7 @@ import org.testng.annotations.*;
 
 @CucumberOptions(
         features = "src/test/resources/features",
-        glue = {"com.ita.edu.teachua.cucumber.steps_definitions"}
+        glue = {"com.ita.edu.pecodesoftware.ui.cucumber.steps_definitions"}
 
 )
 public class CucumberTestRunner extends AbstractTestNGCucumberTests {

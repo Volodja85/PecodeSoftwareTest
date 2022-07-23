@@ -1,4 +1,4 @@
-package com.ita.edu.pecodesoftware.ui.cucumber.cucumberTestRunner;
+package com.ita.edu.pecodesoftware.ui.cucumber.steps_definitions;
 
 import com.ita.edu.pecodesoftware.ui.elements.pages.HomePage;
 import com.ita.edu.pecodesoftware.ui.elements.pages.LoginPage;
