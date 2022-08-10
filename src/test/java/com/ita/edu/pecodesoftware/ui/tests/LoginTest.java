@@ -4,6 +4,7 @@ import com.ita.edu.pecodesoftware.ui.TestRunnerNG;
 import com.ita.edu.pecodesoftware.ui.elements.pages.LoginPage;
 import io.qameta.allure.Description;
 import io.qameta.allure.Issue;
+import lombok.var;
 import org.testng.Assert;
 import lombok.var;
 import org.testng.annotations.AfterMethod;
